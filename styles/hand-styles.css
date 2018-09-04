@@ -1,0 +1,98 @@
+.hands {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.hands > div {
+    position: absolute;
+    width: 3%;
+    left: 50%;
+    box-sizing: border-box;
+    transform-origin: bottom center;
+}
+.hands .hour {
+    z-index: 6;
+    bottom: 50%;
+    height: 33%;
+    display: block;
+    transform: translate(-50%, 0);
+}
+.hands .minute {
+    z-index: 8;
+    bottom: 50%;
+    height: 43.5%;
+    display: block;
+    transform: translate(-50%, 0);
+}
+.hands .second {
+    z-index: 10;
+    bottom: 50%;
+    height: 47.5%;
+    width: 1.6%;
+    display: block;
+    transform: translate(-50%, 0);
+}
+.hands > div svg {
+    width: 100%;
+    height: 100%;
+}
+.hands .second svg {
+    filter: invert(11%) sepia(78%) saturate(4385%)
+    hue-rotate(356deg) brightness(94%) contrast(117%);
+    /*drop-shadow(3px 8px 1px rgba(0,0,0,0.25));*/
+}
+.hands .tail {
+    width: 100%;
+    height: 19%;
+    top: 100%;
+    display: block;
+    background-color: #990000;
+    position: absolute;
+}
+.hands .shadow svg {
+    filter: saturate(0%);
+    opacity: 0.35;
+}
+.hands .shadow {
+    width: 9px;
+    bottom: 48%;
+    left: 51%;
+    transform: translate(-50%, 0);
+    filter: blur(1px);
+    z-index: 1;
+}
+.hands .second.shadow {
+    height: 47.5%;
+    width: 1.6%;
+    transform: translate(-50%, 0);
+}
+.hands  .second.shadow .tail {
+    width: 100%;
+    height: 19%;
+    top: 100%;
+    background-color: #000;
+    opacity: 0.35;
+    position: absolute;
+}
+.minuteHub {
+    width: 6%;
+    height: 6%;
+    border-radius: 50%;
+    background-color: #000;
+    position: absolute;
+    top: 49.8%;
+    left: 50.5%;
+    transform: translate(-50%, -50%);
+    box-shadow: 3px 8px 1px 1px rgba(0,0,0,0.25);
+}
+.secondHub {
+    width: 4%;
+    height: 4%;
+    border-radius: 50%;
+    background-color: #990000;
+    position: absolute;
+    z-index: 10;
+    top: 49.9%;
+    left: 50.5%;
+    transform: translate(-50%, -50%);
+}

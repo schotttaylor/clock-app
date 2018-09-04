@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="face">
+        <div class="faceBackground"></div>
+        <div class="faceShadow"></div>
+        <div class="faceGradient"></div>
+        <div class="faceRing"></div>
+        <div class="faceRingOuter"></div>
+        <div class="title">SCHOTT</div>
+        <div class="monthYear"><span class="month"></span><span class="day"></span><span class="year"></span></div>
+        <div class="numbers">
+            <div class="number one"><div>1</div></div>
+            <div class="number two"><div>2</div></div>
+            <div class="number three"><div>3</div></div>
+            <div class="number four"><div>4</div></div>
+            <div class="number five"><div>5</div></div>
+            <div class="number six"><div>6</div></div>
+            <div class="number seven"><div>7</div></div>
+            <div class="number eight"><div>8</div></div>
+            <div class="number nine"><div>9</div></div>
+            <div class="number ten"><div>10</div></div>
+            <div class="number eleven"><div>11</div></div>
+            <div class="number twelve"><div>12</div></div>
+        </div>
+        <div class="ticks"></div>
+        <div class="hands">
+            <div class="hour"></div>
+            <div class="minute">
+                <div class="minuteHub"></div>
+            </div>
+            <div class="second">
+                <div class="tail"></div>
+                <div class="secondHub"></div>
+            </div>
+
+            <div class="hour shadow"></div>
+            <div class="minute shadow"></div>
+            <div class="second shadow">
+                <div class="tail"></div>
+            </div>
+        </div>
+        <div class="hubShadow"></div>
+    </div>
+
+    <div class="clock"></div>
+
+    <script type="application/javascript">
+      const ticks = document.getElementsByClassName('ticks');
+
+      const hour = document.getElementsByClassName('hour');
+      const minute = document.getElementsByClassName('minute');
+      const second = document.getElementsByClassName('second');
+
+      const month = document.getElementsByClassName('month');
+      const day = document.getElementsByClassName('day');
+      const year = document.getElementsByClassName('year');
+
+      const hourShadow = document.getElementsByClassName('hourShadow');
+      const minuteShadow = document.getElementsByClassName('minuteShadow');
+      const secondShadow = document.getElementsByClassName('secondShadow');
+
+      const tickCount = 72*5;
+      const time = new Date();
+
+      const monthNames = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec',];
+
+      const monthVal = monthNames[time.getMonth()];
+      const dayVal = ("0" + time.getDate()).slice(-2);
+      const yearVal = time.getFullYear().toString().substr(2,2);
+
+      month[0].innerHTML = monthVal;
+      day[0].innerHTML = dayVal;
+      year[0].innerHTML = yearVal;
+
+      let tick;
+      let tickMark;
+
+      for (let i = 0; i < tickCount; i+= 6) {
+        tick = document.createElement('DIV');
+        tickMark = document.createElement('DIV');
+        ticks[0].appendChild(tick);
+        tick.setAttribute('class', 'tick pos-'+i);
+        tick.setAttribute('style', 'transform: rotate('+i+'deg);');
+        tick.appendChild(tickMark);
+      }
+      function date() {
+        console.log(monthVal+' '+dayVal+' '+yearVal);
+
+        month[0].innerHTML = monthVal;
+        day[0].innerHTML = dayVal;
+        year[0].innerHTML = yearVal;
+      }
+      setInterval(date, 10000);
+
+      function clock() {
+        const time = new Date();
+        const hourPos = ((time.getHours() % 12) + time.getMinutes() / 60) * 30;
+        const minutesPos = (time.getMinutes() + time.getSeconds() / 60) * 6;
+        const secondsPos = (time.getSeconds() + time.getMilliseconds() / 1000) * 6;
+
+        for (let i = 0; i < hour.length; i++) {
+          hour[i].style.transform = (`rotate(${ hourPos }deg)`);
+        }
+        for (let i = 0; i < minute.length; i++) {
+          minute[i].style.transform = (`rotate(${ minutesPos }deg)`);
+        }
+        for (let i = 0; i < second.length; i++) {
+          second[i].style.transform = (`rotate(${ secondsPos }deg)`);
+        }
+      }
+      setInterval(clock, 33);
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+        html {
+            height: 100%;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #6e7359;
+            background-image: url("images/concrete-wall-2.png");
+            background-size: 697px;
+            box-shadow: inset 0px 80px 400px 50px rgba(0,0,0,0.35);
+            margin: 0;
+            min-height: 100%;
+        }
+        .face {
+            height: 400px;
+            width: 400px;
+            border: solid 20px #222;
+            border-radius: 50%;
+            margin: 0 auto;
+            top: 150px;
+            position: relative;
+            box-shadow: 2px 15px 20px 5px rgba(0,0,0,0.35);
+        }
+        .faceBackground {
+            height: 400px;
+            width: 400px;
+            position: absolute;
+            border-radius: 100%;
+            background-size: 100%;
+            background-color: floralwhite;
+            background-position: center;
+            background-image: url("images/clean-gray-paper.png");
+        }
+        .faceShadow {
+            height: 400px;
+            width: 400px;
+            position: absolute;
+            background-color: transparent;
+            border-radius: 50%;
+            box-shadow: inset 3px 10px 3px 0px rgba(0,0,0,0.35);
+        }
+        .faceGradient {
+            height: 400px;
+            width: 400px;
+            position: absolute;
+            background-color: transparent;
+            border-radius: 50%;
+            box-shadow: inset -12px -57px 110px 20px rgba(100,80,0,0.4);
+        }
+        .faceRing {
+            height: 220px;
+            width: 220px;
+            top: 90px;
+            left: 90px;
+            position: absolute;
+            border-radius: 50%;
+            box-sizing: border-box;
+            border: 4px #906500;
+            border-style: double;
+            box-shadow: inset 0px 0px 0px 110px rgba(100,80,0,0.1);
+        }
+        .faceRingOuter {
+            height: 390px;
+            width: 390px;
+            top: 5px;
+            left: 5px;
+            position: absolute;
+            border-radius: 50%;
+            box-sizing: border-box;
+            border: 3px solid #906500;
+        }
+        .title {
+            position: absolute;
+            top: 145px;
+            left: 50%;
+            width: 160px;
+            margin-left: -80px;
+            text-align: center;
+            letter-spacing: 0.2rem;
+            font-size: 1rem;
+        }
+        .monthYear {
+            position: absolute;
+            top: 245px;
+            left: 50%;
+            width: auto;
+            margin-left: -71px;
+            text-align: center;
+            letter-spacing: 0.2rem;
+            font-size: 1.2rem;
+            background-color: #FFF;
+            border: 3px double #906500;
+            border-radius: 8px;
+            box-shadow: inset 0px 1px 10px 1px rgba(0,0,0,0.7);
+            overflow: hidden;
+            height: 1.6rem;
+        }
+        .monthYear span {
+            border: 1px solid #333;
+            padding: 0 0.2rem;
+            box-shadow: inset 0 0 2px 1px rgba(0,0,0,0.4);
+            height: 1.7rem;
+            display: inline-block;
+            top: -1px;
+            position: relative;
+            line-height: 1.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .monthYear .month {
+            width: 47px;
+        }
+        .monthYear .day,
+        .monthYear .year {
+            width: 31px;
+            padding-left: 5px;
+        }
+        .tick {
+            width: 2px;
+            height: 200px;
+            position: absolute;
+            top: 0px;
+            left: 49.7%;
+            transform-origin: bottom center;
+        }
+        .tick div {
+            height: 6%;
+            width: 100%;
+            margin-top: 8px;
+            background-color: #906500;
+        }
+        .tick:nth-child(5n+1) {
+            width: 3px;
+        }
+        .tick:nth-child(5n+1) div {
+            background-color: black;
+            height: 8%;
+        }
+        .hands div {
+            position: absolute;
+            width: 11px;
+            margin-left: -3.5px;
+            box-sizing: border-box;
+            transform-origin: bottom center;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+        .hands .hour {
+            z-index: 6;
+            top: 75px;
+            left: 199px;
+            height: 125px;
+            border-bottom-style: solid;
+            border-bottom-color: black;
+            border-bottom-width: 125px;
+        }
+        .hands .minute {
+            z-index: 8;
+            top: 22px;
+            left: 199px;
+            height: 178px;
+            border-bottom-style: solid;
+            border-bottom-color: black;
+            border-bottom-width: 178px;
+        }
+        .hands .second {
+            z-index: 10;
+            top: 10px;
+            left: 201px;
+            height: 190px;
+            width: 5px;
+            overflow: visible;
+            border-left: 2px solid transparent;
+            border-right: 2px solid transparent;
+            border-bottom-style: solid;
+            border-bottom-color: #990000;
+            border-bottom-width: 190px;
+        }
+        .hands .second .tail {
+            width: 7px;
+            height: 60px;
+            top: 190px;
+            left: -1px;
+            position: relative;
+            background-color: #990000;
+        }
+        .hands .shadow {
+            width: 9px;
+            left: 202px;
+            z-index: 1;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom-color: rgba(0,0,0,0.2);
+            filter: blur(1px);
+        }
+        .hands .hour.shadow {
+            top: 83px;
+            height: 125px;
+            border-bottom-width: 125px;
+        }
+        .hands .minute.shadow {
+            top: 32px;
+            height: 178px;
+            border-bottom-width: 178px;
+        }
+        .hands .second.shadow {
+            top: 19px;
+            height: 190px;
+            width: 5px;
+            border-left: 2px solid transparent;
+            border-right: 2px solid transparent;
+            border-bottom-width: 190px;
+        }
+        .hands .second.shadow .tail {
+            top: 190px;
+            width: 5px;
+            height: 60px;
+            position: relative;
+            background-color: rgba(0,0,0,0.2);
+        }
+        .number {
+            position: absolute;
+            left: 50%;
+            width: 40px;
+            height: 200px;
+            margin-left: -20px;
+            text-align: center;
+            transform-origin: bottom center;
+        }
+        .hands .minuteHub {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: #000;
+            position: absolute;
+            top: 165px;
+            left: -9px;
+        }
+        .hands .secondHub {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #990000;
+            position: absolute;
+            z-index: 10;
+            top: 180px;
+            left: -6px;
+        }
+        .hubShadow {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.25);
+            position: absolute;
+            top: 195px;
+            left: 189px;
+            filter: blur(1px);
+            /*box-shadow: 2px 7px 1px 0px rgba(0,0,0,0.25);*/
+        }
+        .number.one { transform: rotate(30deg); }
+        .number.two { transform: rotate(60deg); }
+        .number.three { transform: rotate(90deg); }
+        .number.four { transform: rotate(120deg); }
+        .number.five { transform: rotate(150deg); }
+        .number.six { transform: rotate(180deg); }
+        .number.seven { transform: rotate(210deg); }
+        .number.eight { transform: rotate(240deg); }
+        .number.nine { transform: rotate(270deg); }
+        .number.ten { transform: rotate(300deg); }
+        .number.eleven { transform: rotate(330deg); }
+        .number.twelve { transform: rotate(360deg); }
+
+        .number div {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-top: 1.8rem;
+        }
+
+        .number.one div { transform: rotate(-30deg); }
+        .number.two div { transform: rotate(-60deg); }
+        .number.three div { transform: rotate(-90deg); }
+        .number.four div { transform: rotate(-120deg); }
+        .number.five div { transform: rotate(-150deg); }
+        .number.six div { transform: rotate(-180deg); }
+        .number.seven div { transform: rotate(-210deg); }
+        .number.eight div { transform: rotate(-240deg); }
+        .number.nine div { transform: rotate(-270deg); }
+        .number.ten div { transform: rotate(-300deg); }
+        .number.eleven div { transform: rotate(-330deg); }
+    </style>
+</body>
+</html>
