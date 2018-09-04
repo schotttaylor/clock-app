@@ -3,7 +3,6 @@ const ticks = document.getElementsByClassName('ticks');
 const hour   = document.getElementsByClassName('hour');
 const minute = document.getElementsByClassName('minute');
 const second = document.getElementsByClassName('second');
-const secondTail = document.getElementsByClassName('secondTail');
 
 const month = document.getElementsByClassName('month');
 const day   = document.getElementsByClassName('day');
@@ -30,7 +29,7 @@ function renderTicks() {
     ticks[0].appendChild(tick);
 
     tick.setAttribute('class', 'tick pos-' + i);
-    tick.setAttribute('style', 'transform: rotate(' + i + 'deg) translate(-50%, 0);');
+    tick.setAttribute('style', 'transform: rotate(' + i + 'deg)');
 
     tickMark = document.createElement('div');
     tick.appendChild(tickMark);
@@ -41,13 +40,9 @@ function renderNumbers() {
   for (let i = 0; i < 12; i++) {
     number = document.createElement('div');
     numbers[0].appendChild(number);
-
     number.setAttribute(`class`,`number number-${i+1}`);
-    // number.style.transform = 'translate(-50%, 0) rotate(${i*30}deg);';
-
     numberText = document.createElement('div');
     number.appendChild(numberText);
-
     numberText.innerHTML = i+1;
   }
 }
@@ -72,7 +67,6 @@ function startClock() {
   }
   for (let i = 0; i < second.length; i++) {
     second[i].style.transform = (`rotate(${ secondsPos }deg)`);
-    // secondTail[i].style.transform = (`rotate(${ secondsPos }deg)`);
   }
 }
 
