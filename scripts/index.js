@@ -60,13 +60,13 @@ function startClock() {
         secondsPos = (time.getSeconds() + time.getMilliseconds() / 1000) * 6;
 
   for (let i = 0; i < hour.length; i++) {
-    hour[i].style.transform = (`rotate(${ hourPos }deg)`);
+    hour[i].style.transform = (`translateZ(1px) rotate(${ hourPos }deg)`);
   }
   for (let i = 0; i < minute.length; i++) {
-    minute[i].style.transform = (`rotate(${ minutesPos }deg)`);
+    minute[i].style.transform = (`translateZ(1px) rotate(${ minutesPos }deg)`);
   }
   for (let i = 0; i < second.length; i++) {
-    second[i].style.transform = (`rotate(${ secondsPos }deg)`);
+    second[i].style.transform = (`translateZ(1px) rotate(${ secondsPos }deg)`);
   }
 }
 
