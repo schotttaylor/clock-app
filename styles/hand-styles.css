@@ -1,94 +1,74 @@
 .hands {
-    height: 100%;
-    width: 100%;
-    position: absolute;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  filter: drop-shadow(0.5vw 1.1vw 0.05vw rgba(0, 0, 0, 0.25));
 }
-.hands > div {
-    position: absolute;
-    width: 3%;
-    left: 48.5%;
-    box-sizing: border-box;
-    transform-origin: bottom center;
+
+.hands .hand {
+  position: absolute;
+  width: 3%;
+  left: 48.5%;
+  box-sizing: border-box;
+  transform: translate(-50%, 0);
+  transform-origin: bottom center;
+  border-left: 0.6vw solid transparent;
+  border-right: 0.6vw solid transparent;
 }
+
 .hands .hour {
-    z-index: 6;
-    bottom: 50%;
-    height: 33%;
-    display: block;
+  z-index: 6;
+  bottom: 50%;
+  height: 14vw;
+  border-bottom: 14vw solid #000;
 }
+
 .hands .minute {
-    z-index: 8;
-    bottom: 50%;
-    height: 43.5%;
-    display: block;
+  z-index: 8;
+  bottom: 50%;
+  height: 43.5%;
+  border-bottom: 19.7vw solid #000;
 }
+
 .hands .second {
-    z-index: 10;
-    bottom: 50%;
-    height: 47.5%;
-    width: 1.6%;
-    display: block;
-    left: 49.2%;
+  z-index: 20;
+  bottom: 50%;
+  height: 21.4vw;
+  width: 0.75vw;
+  left: 49.2%;
+  border-left: 0.3vw solid transparent;
+  border-right: 0.3vw solid transparent;
+  border-bottom: 21.4vw solid #990000;
 }
-.hands > div svg {
-    width: 100%;
-    height: 100%;
-}
-.hands .second svg {
-    filter: invert(11%) sepia(78%) saturate(4385%)
-    hue-rotate(356deg) brightness(94%) contrast(117%);
-    /*drop-shadow(3px 8px 1px rgba(0,0,0,0.25));*/
-}
+
 .hands .tail {
-    width: 100%;
-    height: 19%;
-    top: 100%;
-    display: block;
-    background-color: #990000;
-    position: absolute;
+  width: 1.15vw;
+  height: 6vw;
+  top: 21.4vw;
+  position: absolute;
+  transform: translate(-50%, 0);
+  background-color: #990000;
 }
-.hands .shadow svg {
-    filter: saturate(0%);
-    opacity: 0.35;
+
+.hands .minuteHub {
+  width: 6%;
+  height: 6%;
+  border-radius: 50%;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.hands .shadow {
-    width: 9px;
-    bottom: 48%;
-    left: 51%;
-    filter: blur(1px);
-    z-index: 1;
-}
-.hands .second.shadow {
-    height: 47.5%;
-    width: 1.6%;
-}
-.hands  .second.shadow .tail {
-    width: 100%;
-    height: 19%;
-    top: 100%;
-    background-color: #000;
-    opacity: 0.35;
-    position: absolute;
-}
-.minuteHub {
-    width: 6%;
-    height: 6%;
-    border-radius: 50%;
-    background-color: #000;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 3px 8px 1px 1px rgba(0,0,0,0.25);
-}
-.secondHub {
-    width: 4%;
-    height: 4%;
-    border-radius: 50%;
-    background-color: #990000;
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+.hands .secondHub {
+  width: 4%;
+  height: 4%;
+  border-radius: 50%;
+  background-color: #990000;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

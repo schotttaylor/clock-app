@@ -77,7 +77,7 @@ function init() {
   renderTicks();
   renderNumbers();
   setInterval(getDate, 10000);
-  setInterval(startClock, 30);
+  setInterval(startClock, 33);
 }
 
 init();
