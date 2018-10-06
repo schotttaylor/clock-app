@@ -9,6 +9,7 @@
   position: absolute;
   width: 3%;
   left: 48.5%;
+  bottom: 50%;
   box-sizing: border-box;
   transform: translate(-50%, 0);
   transform-origin: bottom center;
@@ -18,21 +19,18 @@
 
 .hands .hour {
   z-index: 6;
-  bottom: 50%;
   height: 14vw;
   border-bottom: 14vw solid #000;
 }
 
 .hands .minute {
   z-index: 8;
-  bottom: 50%;
   height: 43.5%;
   border-bottom: 19.7vw solid #000;
 }
 
 .hands .second {
   z-index: 20;
-  bottom: 50%;
   height: 21.4vw;
   width: 0.75vw;
   left: 49.2%;
@@ -46,6 +44,7 @@
   height: 6vw;
   top: 21.4vw;
   position: absolute;
+  z-index: 20;
   transform: translate(-50%, 0);
   background-color: #990000;
 }
@@ -56,6 +55,7 @@
   border-radius: 50%;
   background-color: #000;
   position: absolute;
+  z-index: 8;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -67,7 +67,7 @@
   border-radius: 50%;
   background-color: #990000;
   position: absolute;
-  z-index: 1000;
+  z-index: 20;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
